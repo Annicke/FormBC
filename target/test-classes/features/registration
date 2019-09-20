@@ -1,0 +1,23 @@
+Feature: Registration
+  As a user of propertyrete
+  I want to register
+  So that i can get access to the site
+
+  Background:
+    Given I navigate to the site "https://propertyrete.com"
+    When I click on register button
+
+  Scenario Outline: Invalid Registration
+    And I complete the"<firstName>","<lastName>","<email address>","<Mobile no>","<Password>","<ConfirmPaswd>" field
+    And I check the checkbox
+    And click on create account
+    Then I am prompted on activate account
+    And the message "<message>"
+
+     Examples:
+      |firstName|lastName       |email address              |Mobile no   |Password       |ConfirmPaswd|message                                 |
+      |Anne     | Mensi         |gif@myautomation.33mail.com|07575555555 |12345hs        |12345hs     |Activation Code(Sent via SMS and email)*|
+      |Bless    |Ola            |olabless@gmail.com         |07679111111 |23456          |23456       |Activation Code(Sent via SMS and email)*|
+      |Dani     |viv            |dan@yahoo.fr               |07075656565 |mum            |mum         |Activation Code(Sent via SMS and email)*|
+      |Gabu     | Geo           |gabi@yahoo.co.uk           |07575434343 |12werty        |12werty     |Activation Code(Sent via SMS and email)*|
+      |Annickel |Baf            |babi@gmail.com             |07775433222 |2345677        |2345677     |Activation Code(Sent via SMS and email)*|

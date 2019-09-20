@@ -1,0 +1,32 @@
+Feature: Login
+  As a user of propertyrete
+  I want to login
+  so that I can make use of the site.
+
+Background:
+  Given I navigate to the site "https://propertyrete.com"
+  When I click on login button
+
+  Scenario: valid Login
+    And I enter my email address "blessings4u10@gmail.com"
+    And I enter my Password "12345hs"
+    And I click on Sign In
+    Then I am signed In
+
+  Scenario: Invalid Login - Invalid email
+    And I enter an invalid email address "blessings4u10mail.com"
+    And I enter Password "12345hs"
+    And I click sign In
+    Then I am not signed In
+
+  Scenario: Invalid Login - Invalid Password
+    And I enter valid email address "blessings4u10@gmail.com"
+    And I enter invalid Password "1122222222222222222222"
+    And I click signin
+    Then I am not signed In
+
+  Scenario: Invalid Login - Empty email and Password
+    And I enter email address ""
+    And I enter no Password ""
+    And I click sign In
+    Then I am not signed In
